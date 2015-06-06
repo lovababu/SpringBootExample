@@ -1,0 +1,18 @@
+// Customize this file for your project as needed
+/////////////////////////////////////////////////
+
+// If you rename your packages, feel free to rename this..
+mainClassName = ext.serviceClassName
+
+// Add dependencies below..
+// For help with gradle, consult: http://www.gradle.org/docs/current/userguide/userguide_single.html
+dependencies {
+  compile project(':microservicedemo-api')
+  compile 'com.netflix.feign:feign-core:8.3.0'
+  compile 'com.netflix.feign:feign-okhttp:8.3.0'
+  compile 'com.netflix.feign:feign-httpclient:8.3.0'
+  compile 'com.netflix.feign:feign-jackson:8.3.0'
+
+  //Feign SLF4J.
+  compile 'com.netflix.feign:feign-slf4j:8.3.0'
+}
