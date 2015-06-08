@@ -13,7 +13,7 @@ Added support for user interactive documentation using Jsondoc api.
   8. <a href="https://gradle.org/">Gradle</a>
 
 #Prerequisites.
- JDK 7 or above. \n
+ JDK 7 or above. <br/>
  Gradle (for installation refer https://docs.gradle.org/current/userguide/installation.html)
 #How to Import into IDE?
  
