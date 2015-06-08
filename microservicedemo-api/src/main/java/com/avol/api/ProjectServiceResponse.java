@@ -21,7 +21,7 @@ public class ProjectServiceResponse{
     @ApiObjectField(description = "Gives you the status of the request.", required = true)
     private boolean success = false;
     @ApiObjectField(description = "Project information.", required = false)
-    private List<Project> project;
+    private List<Project> projects;
     @ApiObjectField(description = "HttpStatus code returned by remote server.", required = true)
     private String httpStatusCode;
     @ApiObjectField(description = "Message returned by the remote server.", required = false)
@@ -29,7 +29,7 @@ public class ProjectServiceResponse{
 
     private ProjectServiceResponse(Builder builder) {
         this.success = builder.success;
-        this.project = builder.project;
+        this.projects = builder.projects;
         this.httpStatusCode = builder.httpStatusCode;
         this.message = builder.message;
     }
@@ -45,7 +45,7 @@ public class ProjectServiceResponse{
         }
 
         private boolean success;
-        private List<Project> project;
+        private List<Project> projects;
         private String httpStatusCode;
         private String message;
 
@@ -55,20 +55,23 @@ public class ProjectServiceResponse{
         }
 
         public Builder withProject(Project input) {
-            if (this.project == null)
+            if (this.projects == null)
             {
-                this.project = new ArrayList<>();
+                this.projects = new ArrayList<>();
             }
-            this.project.add(input);
+            this.projects.add(input);
             return this;
         }
 
         public Builder withProject(List<Project> input) {
-            if (this.project == null)
-            {
-                this.project = new ArrayList<>();
+            if (input == null) {
+                return this;
             }
-            this.project.addAll(input);
+            if (this.projects == null)
+            {
+                this.projects = new ArrayList<>();
+            }
+            this.projects.addAll(input);
             return this;
         }
 
