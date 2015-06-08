@@ -5,7 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.jsondoc.core.annotation.ApiObject;
 import org.jsondoc.core.annotation.ApiObjectField;
-import org.springframework.hateoas.ResourceSupport;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Durga on 6/5/2015.
@@ -19,7 +21,7 @@ public class ProjectServiceResponse{
     @ApiObjectField(description = "Gives you the status of the request.", required = true)
     private boolean success = false;
     @ApiObjectField(description = "Project information.", required = false)
-    private Project project;
+    private List<Project> project;
     @ApiObjectField(description = "HttpStatus code returned by remote server.", required = true)
     private String httpStatusCode;
     @ApiObjectField(description = "Message returned by the remote server.", required = false)
@@ -43,7 +45,7 @@ public class ProjectServiceResponse{
         }
 
         private boolean success;
-        private Project project;
+        private List<Project> project;
         private String httpStatusCode;
         private String message;
 
@@ -53,7 +55,20 @@ public class ProjectServiceResponse{
         }
 
         public Builder withProject(Project input) {
-            this.project = input;
+            if (this.project == null)
+            {
+                this.project = new ArrayList<>();
+            }
+            this.project.add(input);
+            return this;
+        }
+
+        public Builder withProject(List<Project> input) {
+            if (this.project == null)
+            {
+                this.project = new ArrayList<>();
+            }
+            this.project.addAll(input);
             return this;
         }
 

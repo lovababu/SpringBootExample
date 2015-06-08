@@ -9,13 +9,13 @@ import java.util.List;
  */
 public interface ProjectService {
 
-    String create(ProjectDomain projectDomain);
+    void create(ProjectDomain projectDomain);
 
     ProjectDomain get(String id);
 
     String update(ProjectDomain projectDomain);
 
-    void delete(String id);
+    void delete(ProjectDomain projectDomain);
 
     List<ProjectDomain> list();
 }

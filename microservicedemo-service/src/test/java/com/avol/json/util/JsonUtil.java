@@ -16,8 +16,12 @@ public class JsonUtil {
     public void jsonStringFromObject(){
         ObjectMapper objectMapper = new ObjectMapper();
         Project project = new Project();
+        project.setId("XXX");
+        project.setDescription("some desc.");
+        project.setPlatform("Java");
+        project.setTeamSize("10");
         try {
-            objectMapper.writeValue(new File("./project.jso"), project);
+            objectMapper.writeValue(new File("./../project.json"), project);
         } catch (IOException e) {
             e.printStackTrace();
         }
