@@ -11,11 +11,14 @@ Added support for user interactive documentation using Jsondoc api.
   6. <a href="https://github.com/Netflix/feign/blob/master/README.md">Fiegn.</a>
   7. <a href="http://square.github.io/okhttp/">OKHTTP.</a>
   8. <a href="https://gradle.org/">Gradle</a>
+
 #Prerequisites.
- JDK 7 or above.
+ JDK 7 or above. \n
  Gradle (for installation refer https://docs.gradle.org/current/userguide/installation.html)
 #How to Import into IDE?
+ 
  Used gradle build tool as dependency management, build and packaging. Go to the cloned/downloaded directory and run the below task.
+
 1. For eclipse lovers.
 
  >gradlew eclipse 
@@ -36,5 +39,6 @@ Added support for user interactive documentation using Jsondoc api.
  This is bug in gradle https://issues.gradle.org/browse/GRADLE-2992 .
 
 #How to access documentation?
- http://localhost:8080/jsondoc-ui.html and paste the url http://localhost:8080/jsondoc in the text box and click on GetDocumentation button.
+ 
+  http://localhost:8080/jsondoc-ui.html and paste the url http://localhost:8080/jsondoc in the text box and click on GetDocumentation button.
 
