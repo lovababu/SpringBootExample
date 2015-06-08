@@ -14,14 +14,20 @@ import java.util.List;
 public class ProjectDTO {
 
     public static ProjectDomain projectDomain(Project project){
-        ProjectDomain projectDomain = new ProjectDomain();
-        BeanUtils.copyProperties(project, projectDomain);
+        ProjectDomain projectDomain = null;
+        if (project != null) {
+            projectDomain = new ProjectDomain();
+            BeanUtils.copyProperties(project, projectDomain);
+        }
         return projectDomain;
     }
 
     public static Project projectApi(ProjectDomain projectDomain){
-        Project project = new Project();
-        BeanUtils.copyProperties(projectDomain, project);
+        Project project = null;
+        if (projectDomain != null) {
+            project = new Project();
+            BeanUtils.copyProperties(projectDomain, project);
+        }
         return project;
     }
 

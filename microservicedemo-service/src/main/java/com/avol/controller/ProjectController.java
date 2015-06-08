@@ -70,6 +70,7 @@ public class ProjectController {
                 .withMessage("Request processed successfully.").build();
         Resource resource = new Resource<ProjectServiceResponse>(response);
         resource.add(entityLinks.linkForSingleResource(ProjectServiceResponse.class, project.getId()).withSelfRel());
+        resource.add(entityLinks.linkToSingleResource(ProjectServiceResponse.class, "/list").withSelfRel());
         return new ResponseEntity<Resource<ProjectServiceResponse>>(resource, HttpStatus.CREATED);
     }
 
@@ -85,7 +86,7 @@ public class ProjectController {
         Project project = ProjectDTO.projectApi(projectDomain);
         //constructing response.
         ProjectServiceResponse response =ProjectServiceResponse.builder()
-                .withHttpStatusCode(HttpStatus.OK.toString())
+                .withHttpStatusCode(project != null ? HttpStatus.OK.toString() : HttpStatus.NOT_FOUND.toString())
                 .withSuccess(true)
                 .withProject(project)
                 .withMessage("Request processed successfully.").build();
@@ -101,8 +102,7 @@ public class ProjectController {
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ApiResponseObject HttpEntity<Resource<ProjectServiceResponse>> update(@ApiPathParam(description = "Project id", format = "AnyString")
-                  @PathVariable("id") String id,
-                  @ApiBodyObject(clazz = Project.class) @RequestBody Project project) {
+                  @PathVariable("id") String id, @ApiBodyObject(clazz = Project.class) @RequestBody Project project) {
         projectService.update(ProjectDTO.projectDomain(project));
 
         //constructing response.
@@ -112,6 +112,7 @@ public class ProjectController {
                 .withProject(project)
                 .withMessage("Request processed successfully.").build();
         Resource resource = new Resource<ProjectServiceResponse>(response);
+        resource.add(entityLinks.linkToSingleResource(ProjectServiceResponse.class, project.getId()).withSelfRel());
         resource.add(entityLinks.linkToCollectionResource(ProjectServiceResponse.class).withSelfRel());
         return new ResponseEntity<Resource<ProjectServiceResponse>>(resource, HttpStatus.OK);
     }
@@ -133,6 +134,7 @@ public class ProjectController {
                 .withSuccess(true)
                 .withMessage("Request processed successfully.").build();
         Resource resource = new Resource<ProjectServiceResponse>(response);
+        resource.add(entityLinks.linkToSingleResource(ProjectServiceResponse.class, "/list").withSelfRel());
         resource.add(entityLinks.linkToCollectionResource(ProjectServiceResponse.class).withSelfRel());
         return new ResponseEntity<Resource<ProjectServiceResponse>>(resource, HttpStatus.OK);
     }
