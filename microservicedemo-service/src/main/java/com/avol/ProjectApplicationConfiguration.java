@@ -1,11 +1,3 @@
-/**
- * Copyright 2012-2015 NeuStar, Inc. All rights reserved.
- * NeuStar, the Neustar logo and related names and logos are registered
- * trademarks, service marks or tradenames of NeuStar, Inc. All other
- * product names, company names, marks, logos and symbols may be trademarks
- * of their respective owners.
- */
-
 package com.avol;
 
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +16,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 /**
+ * Created by Durga on 6/8/2015.
  * Configuration for service microservicedemo.
  * Register service specific beans here.
  */

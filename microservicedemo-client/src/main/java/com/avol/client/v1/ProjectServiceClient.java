@@ -1,14 +1,7 @@
-/**
- * Copyright 2000-2015 NeuStar, Inc. All rights reserved.
- * NeuStar, the Neustar logo and related names and logos are registered
- * trademarks, service marks or tradenames of NeuStar, Inc. All other
- * product names, company names, marks, logos and symbols may be trademarks
- * of their respective owners.
- */
-
 package com.avol.client.v1;
 
 import com.avol.api.Project;
+import com.avol.api.ProjectServiceResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.squareup.okhttp.Dispatcher;
 import feign.Feign;
@@ -19,6 +12,7 @@ import feign.RequestInterceptor;
 import feign.RequestLine;
 import feign.Retryer;
 import feign.codec.ErrorDecoder;
+import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
 import feign.slf4j.Slf4jLogger;
 import org.slf4j.Logger;
@@ -29,8 +23,11 @@ import java.util.List;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-;
-
+/**
+ * Created by Durga on 6/8/2015.
+ *
+ * Client application used to communicate with service.
+ */
 
 public class ProjectServiceClient {
     private static final Logger LOGGER = LoggerFactory.getLogger(ProjectServiceClient.class);
@@ -42,20 +39,26 @@ public class ProjectServiceClient {
 
         @Headers({ "Content-type: application/json" })
         @RequestLine("POST /project")
-        String create(Project project);
+        ProjectServiceResponse create(Project project);
 
+        @Headers({ "Content-type: application/json" })
         @RequestLine("GET /project/{id}")
-        Project get(@Param("id") String id);
+        ProjectServiceResponse get(@Param("id") String id);
 
+        @Headers({ "Content-type: application/json" })
         @RequestLine("PUT /project/{id}")
-        String update(@Param("id") String id, Project project);
+        ProjectServiceResponse update(@Param("id") String id, Project project);
 
+        @Headers({ "Content-type: application/json" })
         @RequestLine("DELETE /project/{id}")
-        String delete(@Param("id") String id);
+        ProjectServiceResponse delete(@Param("id") String id);
+
+        @Headers({ "Content-type: application/json" })
+        @RequestLine("GET /list")
+        ProjectServiceResponse list();
     }
 
     public ProjectServiceClient(ProjectServiceClientConfiguration config) {
-        //super(config);
         this.mapper = new ObjectMapper();
         this.conf = config;
     }
@@ -80,7 +83,7 @@ public class ProjectServiceClient {
                 .client(new feign.okhttp.OkHttpClient(okHttpClient))
                 .requestInterceptors(interceptors)
                 .encoder(new JacksonEncoder(mapper))
-                //.decoder(new JacksonDecoder(mapper))
+                .decoder(new JacksonDecoder(mapper))
                 .errorDecoder(decoder)
                 .logger(new Slf4jLogger())
                 .options(new Request.Options(

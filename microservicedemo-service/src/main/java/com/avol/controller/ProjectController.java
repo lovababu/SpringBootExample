@@ -1,11 +1,3 @@
-/**
- * Copyright 2000-2015 NeuStar, Inc. All rights reserved.
- * NeuStar, the Neustar logo and related names and logos are registered
- * trademarks, service marks or tradenames of NeuStar, Inc. All other
- * product names, company names, marks, logos and symbols may be trademarks
- * of their respective owners.
- */
-
 package com.avol.controller;
 
 import com.avol.api.Project;
@@ -32,12 +24,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
+
+/**
+ * Created by Durga on 6/8/2015.
+ *
+ * Controller class, entry point to the service calls.
+ */
 
 @RestController
 @RequestMapping("/project")
-@Api(name = "Microservice demo Application on Project.", description = "Demo application using Spring boot.")
+@Api(name = "Microservice demo Application on Project.",
+        description = "Demo application using Spring boot.")
 @ExposesResourceFor(ProjectServiceResponse.class)
 @Slf4j
 public class ProjectController {
@@ -61,7 +59,6 @@ public class ProjectController {
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ApiResponseObject HttpEntity<Resource<ProjectServiceResponse>> create(@ApiBodyObject(clazz = Project.class)
                                               @RequestBody Project project) {
-
         projectService.create(ProjectDTO.projectDomain(project));
         //constructing response.
         ProjectServiceResponse response =ProjectServiceResponse.builder()

@@ -15,7 +15,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * Service for microservicedemo.
+ * Created by Durga on 6/8/2015.
+ * Bootstrap class.
  */
 
 @SpringBootApplication
