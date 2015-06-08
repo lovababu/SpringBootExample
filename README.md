@@ -1,6 +1,6 @@
 # SpringBootExample
-Sample Service developed using Spring Boot, Hibernate ORM, H2 inMemory datastore to demonstrate the microservice architecture.
-Added HATEOAS feature. 
+Sample Service developed using Spring Boot, Hibernate ORM, H2 inMemory datastore to demonstrate the microservice architecture.<br/>
+Added HATEOAS feature. <br/>
 Added support for user interactive documentation using Jsondoc api.
 
 #Tech Stack.
