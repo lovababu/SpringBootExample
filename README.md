@@ -1,5 +1,6 @@
 # SpringBootExample
-Simple Service developed using Spring Boot, Hibernate ORM, H2 inMemory datastore and HATEOAS. 
+Sample Service developed using Spring Boot, Hibernate ORM, H2 inMemory datastore to demonstrate the microservice architecture.
+Added HATEOAS feature. 
 Added support for user interactive documentation using Jsondoc api.
 
 #Tech Stack.
@@ -31,7 +32,7 @@ Added support for user interactive documentation using Jsondoc api.
   This task builds the application and start up  the server on default port no 8080, you can change it through application.properties have a look.
 
 3. For packaging to deliver.
- >gradle bootRepackage
+ >gradlew bootRepackage
   
   After successful ./microservicedemo-service/build/distributions/microsericedemo-service-<version>.zip file can be found. To run this directly unzip it you can find ./bin/microservicedemo-service.bat directory to start the server, befor run it do below modification for only windows users.
 
