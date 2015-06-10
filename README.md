@@ -32,12 +32,12 @@ Added support for user interactive documentation using Jsondoc api.
   This task builds the application and start up  the server on default port no 8080, you can change it through application.properties have a look.
 
 3. For packaging to deliver.
- >gradlew bootRepackage
+ >gradlew bootRepackage  OR >gradlew clean build bootRepackage
   
   After successful ./microservicedemo-service/build/distributions/microsericedemo-service-<version>.zip file can be found. To run this directly unzip it you can find ./bin/microservicedemo-service.bat directory to start the server, befor run it do below modification for only windows users.
 
- Replace entire CLASSPATH setting with the "set CLASSPATH=%APP_HOME%\conf;%APP_HOME%\lib\*;" . Since windows has limitation in classpath setting.
- This is bug in gradle https://issues.gradle.org/browse/GRADLE-2992 .
+Replace entire CLASSPATH setting with the "set CLASSPATH=%APP_HOME%\conf;%APP_HOME%\lib\*;" . Since windows has limitation in classpath setting.
+This is bug in gradle https://issues.gradle.org/browse/GRADLE-2992 .
 
 #How to access documentation?
  
