@@ -43,3 +43,8 @@ This is bug in gradle https://issues.gradle.org/browse/GRADLE-2992 .
  
   <a href="http://localhost:8080/jsondoc-ui.html">http://localhost:8080/jsondoc-ui.html</a> and paste the url <a href="http://localhost:8080/jsondoc">http://localhost:8080/jsondoc</a> in the text box and click on GetDocumentation button.
 
+#Known Issues and Limitation.
+ 1. Validations missing.
+ 2. Not written fulfledged unit tests.
+ 3. gradle build - Not generating proper service jar.
+ 4. .bat has to be modify manually prior to run.
