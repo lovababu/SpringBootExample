@@ -41,5 +41,5 @@ This is bug in gradle https://issues.gradle.org/browse/GRADLE-2992 .
 
 #How to access documentation?
  
-  <link>http://localhost:8080/jsondoc-ui.html</link> and paste the url <link>http://localhost:8080/jsondoc</link> in the text box and click on GetDocumentation button.
+  <a href="http://localhost:8080/jsondoc-ui.html">http://localhost:8080/jsondoc-ui.html</a> and paste the url <a href="http://localhost:8080/jsondoc">http://localhost:8080/jsondoc</a> in the text box and click on GetDocumentation button.
 
