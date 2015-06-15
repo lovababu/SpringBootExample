@@ -10,6 +10,8 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.validation.Validator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import javax.sql.DataSource;
 import java.io.IOException;
@@ -37,6 +39,12 @@ public class ProjectApplicationConfiguration {
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
     }*/
+
+    @Bean
+    public Validator validator(){
+        return new LocalValidatorFactoryBean();
+    }
+
 
     @Bean(name = "sessionFactory")
     public SessionFactory sessionFactory() throws IOException {

@@ -20,18 +20,25 @@ public class ProjectServiceResponse{
 
     @ApiObjectField(description = "Gives you the status of the request.", required = true)
     private boolean success = false;
+
     @ApiObjectField(description = "Project information.", required = false)
     private List<Project> projects;
+
     @ApiObjectField(description = "HttpStatus code returned by remote server.", required = true)
     private String httpStatusCode;
+
     @ApiObjectField(description = "Message returned by the remote server.", required = false)
     private String message;
+
+    @ApiObjectField(description = "Request Error information.", required = false)
+    private List<RequestError> requestErrors;
 
     private ProjectServiceResponse(Builder builder) {
         this.success = builder.success;
         this.projects = builder.projects;
         this.httpStatusCode = builder.httpStatusCode;
         this.message = builder.message;
+        this.requestErrors = builder.requestErrors;
     }
 
     public static Builder builder() {
@@ -48,6 +55,7 @@ public class ProjectServiceResponse{
         private List<Project> projects;
         private String httpStatusCode;
         private String message;
+        private List<RequestError> requestErrors;
 
         public Builder withSuccess(Boolean input) {
             this.success = input;
@@ -82,6 +90,11 @@ public class ProjectServiceResponse{
 
         public Builder withMessage(String input) {
             this.message =input;
+            return this;
+        }
+
+        public Builder withRequestErrors(List<RequestError> input){
+            this.requestErrors = input;
             return this;
         }
     }
