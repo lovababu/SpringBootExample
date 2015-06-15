@@ -1,8 +1,10 @@
 package com.avol;
 
+import com.avol.util.CustomErrorAttribute;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.web.ErrorAttributes;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
@@ -45,6 +47,10 @@ public class ProjectApplicationConfiguration {
         return new LocalValidatorFactoryBean();
     }
 
+    @Bean
+    public ErrorAttributes customErrorAttribute(){
+        return new CustomErrorAttribute();
+    }
 
     @Bean(name = "sessionFactory")
     public SessionFactory sessionFactory() throws IOException {

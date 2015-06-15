@@ -167,7 +167,6 @@ public class ProjectController {
     @ApiResponseObject
     HttpEntity<Resource<ProjectServiceResponse>> list() {
         List<ProjectDomain> projectDomains = projectService.list();
-
         //constructing response.
         ProjectServiceResponse response = ProjectServiceResponse.builder()
                 .withHttpStatusCode(HttpStatus.OK.toString())

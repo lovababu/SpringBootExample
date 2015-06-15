@@ -10,7 +10,7 @@ import lombok.Getter;
 public class RequestError {
 
     private String error;
-
+    private RequestError(){}
     private RequestError(Builder builder){
         this.error = builder.error;
     }
