@@ -50,7 +50,9 @@ dependencies {
 
   //Testing.
   testCompile project(':microservicedemo-client')
-  testCompile("org.springframework.boot:spring-boot-starter-test")
+  testCompile 'org.springframework.boot:spring-boot-starter-test'
+  testCompile 'info.cukes:cucumber-java:1.2.0'
+  testCompile 'info.cukes:cucumber-junit:1.2.0'
 }
 
 eclipse {
